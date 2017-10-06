@@ -4,8 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.retailsbs.example4.MainActivity">
+    tools:context="com.retailsbs.example4.activities.MainActivity"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@color/primary"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+        <FrameLayout
+            android:id="@+id/fl_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/divider" />
+
+        <Button
+            android:id="@+id/btn_imagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_publicity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@color/primary_light" />
 
 
 </LinearLayout>

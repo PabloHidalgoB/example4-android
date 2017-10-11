@@ -3,7 +3,6 @@ package com.retailsbs.example4.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,6 @@ import android.widget.ListView;
 import com.retailsbs.example4.R;
 import com.retailsbs.example4.activities.DetailsActivity;
 import com.retailsbs.example4.activities.ListerActivity;
-import com.retailsbs.example4.activities.MainActivity;
 import com.retailsbs.example4.activities.RootActivity;
 import com.retailsbs.example4.adapters.AddressAdapter;
 

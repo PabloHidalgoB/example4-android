@@ -1,15 +1,16 @@
 package com.retailsbs.example4.activities;
 
-
-import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.retailsbs.example4.R;
 import com.retailsbs.example4.fragments.FragmentButtons;
@@ -27,7 +28,13 @@ public class MainActivity extends RootActivity {
     private FragmentPublicity mFragmentPublicity;
     private FragmentImages mFragmentImages;
 
+    //Toolbar elements and buttons
     private Toolbar toolbar;
+    private LinearLayout mLayoutBack, mLayoutHome;
+    private TextView mTitleToolbar;
+
+    //press twice to exit app
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +44,18 @@ public class MainActivity extends RootActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        setTitle("Main");
+        mTitleToolbar = (TextView) toolbar.findViewById(R.id.txt_toolbar_title);
+        mTitleToolbar.setText("Main Activity");
+
+        mLayoutBack = (LinearLayout) toolbar.findViewById(R.id.layout_toolbar_back);
+        mLayoutBack.setVisibility(View.GONE);
+
+        mLayoutHome = (LinearLayout) toolbar.findViewById(R.id.layout_toolbar_home);
+        mLayoutHome.setVisibility(View.GONE);
+
 
         btnLeft = (Button) findViewById(R.id.btn_buttons);
         btnRight = (Button) findViewById(R.id.btn_imagen);
-
-
 
         mFragmentButtons = new FragmentButtons();
         mFragmentManager = getSupportFragmentManager();
@@ -77,6 +90,25 @@ public class MainActivity extends RootActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 
 }

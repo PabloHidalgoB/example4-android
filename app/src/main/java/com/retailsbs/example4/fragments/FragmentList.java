@@ -49,7 +49,6 @@ public class FragmentList extends Fragment {
 
         mListAddress = new ArrayList<>();
 
-        mListAddress.add("Trento norte 406");
         mListAddress.add("Avenida siempre viva 1475");
         mListAddress.add("I still know what you did last summer");
         mListAddress.add("Metro Universidad de chile 90");
